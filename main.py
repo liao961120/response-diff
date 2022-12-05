@@ -33,7 +33,7 @@ def wrap_span(s: str):
     def filt2(s):
         if s == " ": return "&nbsp;"
         return s
-    return ''.join(f'<span class="_{filt(c)}">{filt2(c)}</span>' for c in s)
+    return ''.join(f'<span title="{i+1}" class="_{filt(c)}">{filt2(c)}</span>' for i, c in enumerate(s))
 
 def class_style_maker(cls_names):
     style = ""
@@ -67,14 +67,15 @@ def html_maker(title, lines):
         <style>
             {general}
         </style>
+        <link rel="stylesheet" href="styles.css">
         
     </body>
     </html>
     '''
     general = '''
     body { 
-        width: 100%;
         overflow-x: auto;
+        width: fit-content;
     }
     p:nth-child(odd) {
         background-color: rgba(187, 187, 187, 0.2);
@@ -82,7 +83,8 @@ def html_maker(title, lines):
     div > p:hover {
         background-color: rgba(175, 175, 175, 0.3);
     }
-    p {
+    p { 
+        white-space: nowrap;
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;
         margin: 0;
@@ -97,7 +99,7 @@ def html_maker(title, lines):
         padding: 0 .5em;
         margin-right: .5em;
         color: #888;
-        width: 2em;
+        width: 1.8em;
         display: inline-block;
         text-align: right;
         font-size: 0.8em;
