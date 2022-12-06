@@ -83,6 +83,10 @@ def html_maker(title, lines):
     div > p:hover {
         background-color: rgba(175, 175, 175, 0.3);
     }
+    div > p:hover:before {
+        color: red;
+        font-weight: bold;
+    }
     p { 
         white-space: nowrap;
         font-family: 'Courier New', Courier, monospace;
@@ -96,7 +100,6 @@ def html_maker(title, lines):
     p:before {
         content: counter(line);
         border-right: 1px solid #ddd;
-        padding: 0 .5em;
         margin-right: .5em;
         color: #888;
         width: 1.8em;
@@ -104,6 +107,18 @@ def html_maker(title, lines):
         text-align: right;
         font-size: 0.8em;
         font-weight: normal;
+
+        position: sticky;
+        left: 0;
+        background: white;
+        padding: .21em .5em;
+    }
+    div > p > span {
+        cursor: pointer;
+        border: 1px transparent solid;
+    }
+    div > p > span:hover {
+        border: 1px black solid;
     }
     ._A {color: #003f5c; }
     ._B {color: #ffa600; }
@@ -114,9 +129,9 @@ def html_maker(title, lines):
         text-decoration: underline;
     }
     ._0 {background: grey; color: white;}
-    ._BLANK {
+    /*._BLANK {
         background: rgba(0, 128, 0, 0.356);
-    }
+    }*/
     ._Y {text-decoration: underline; }
     ._N {
         color: white;
