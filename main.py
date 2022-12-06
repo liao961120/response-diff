@@ -78,7 +78,7 @@ def html_maker(title, lines):
         width: fit-content;
     }
     p:nth-child(odd) {
-        background-color: rgba(187, 187, 187, 0.2);
+        background-color: rgba(200, 200, 200, 0.1);
     }
     div > p:hover {
         background-color: rgba(175, 175, 175, 0.3);
@@ -120,25 +120,28 @@ def html_maker(title, lines):
     div > p > span:hover {
         border: 1px black solid;
     }
-    ._A {color: #003f5c; }
-    ._B {color: #ffa600; }
-    ._C {color: #bc5090; }
-    ._D {color: #ff6361; }
+    ._A {background-color: #00486a; color: white;}
+    ._B {background-color: #ffa600; color:white}
+    ._C {background-color: #bc5090; color:white}
+    ._D {background-color: #ff6361; color:white}
+    ._E {color: #00486a;}
+    ._F {color: #bc5090;}
+    ._G {color: #ffa600;}
+    ._H {color: #ff6361;}
+    ._BLANK {
+        border: 1px grey dotted;
+    }
     ._QUESTION {
         color: #58508d; 
-        text-decoration: underline;
+        border: 1px grey dotted;
     }
-    ._0 {background: grey; color: white;}
-    /*._BLANK {
-        background: rgba(0, 128, 0, 0.356);
-    }*/
     ._Y {text-decoration: underline; }
     ._N {
         color: white;
         background: black;
     }
-    ._P {color: green;}
-    ._X {color: grey;}
+    ._P {color: blue;}
+    ._X {color: red;}
     '''
     return html.format(title=title, lines=lines, general=general)
 
